@@ -5,12 +5,9 @@ import { deleteUser } from "@/lib/action";
 
 const AdminUsers = async () => {
   const getData = async () => {
-    const res = await fetch(
-      "https://animator-agency-v2-production.up.railway.app/api/user",
-      {
-        cache: "no-store",
-      }
-    );
+    const res = await fetch("https://animator-agency-v2.vercel.app/api/user", {
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       throw new Error("Wrong fetch");

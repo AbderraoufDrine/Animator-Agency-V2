@@ -4,7 +4,7 @@ import PostUser from "@/components/postUser/page";
 
 const getPost = async (id) => {
   const res = await fetch(
-    `https://animator-agency-v2-production.up.railway.app/api/blog/${id}`,
+    `https://animator-agency-v2.vercel.app/api/blog/${id}`,
     {
       next: { revalidate: 3600 },
     }

@@ -4,7 +4,7 @@ import avatar from "../../../public/noavatar.png";
 
 const getUserData = async (id) => {
   const res = await fetch(
-    `https://animator-agency-v2-production.up.railway.app/api/user/${id}`,
+    `https://animator-agency-v2.vercel.app/api/user/${id}`,
     {
       cache: "no-cache",
     }
