@@ -3,9 +3,12 @@ import React from "react";
 import avatar from "../../../public/noavatar.png";
 
 const getUserData = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/user/${id}`, {
-    cache: "no-cache",
-  });
+  const res = await fetch(
+    `https://animator-agency-v2-production.up.railway.app/api/user/${id}`,
+    {
+      cache: "no-cache",
+    }
+  );
   if (!res.ok) {
   }
 

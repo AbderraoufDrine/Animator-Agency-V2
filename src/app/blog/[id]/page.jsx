@@ -3,9 +3,12 @@ import React from "react";
 import PostUser from "@/components/postUser/page";
 
 const getPost = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/blog/${id}`, {
-    next: { revalidate: 3600 },
-  });
+  const res = await fetch(
+    `https://animator-agency-v2-production.up.railway.app/api/blog/${id}`,
+    {
+      next: { revalidate: 3600 },
+    }
+  );
   if (!res.ok) {
     throw new Error("Wrong fetch");
   }
