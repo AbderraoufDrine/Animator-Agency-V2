@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
+import { revalidatePath, unstable_noStore as noStore } from "next/cache";
 import { Post, User } from "./models";
 import { signIn, signOut } from "./auth";
 import { connect } from "./dbConnection";
@@ -73,6 +73,30 @@ export const deleteUser = async (formData) => {
     revalidatePath("/admin");
   } catch (err) {
     return { error: "Something went wrong!" };
+  }
+};
+
+export const getPosts = async () => {
+  noStore();
+  try {
+    connect();
+    const posts = await Post.find();
+    return posts;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch posts!");
+  }
+};
+
+export const getUsers = async () => {
+  noStore();
+  try {
+    connect();
+    const users = await User.find();
+    return users;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch users!");
   }
 };
 

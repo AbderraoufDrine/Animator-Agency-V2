@@ -1,22 +1,22 @@
 import Image from "next/image";
 import React from "react";
 import avatar from "../../../public/noavatar.png";
-import { deleteUser } from "@/lib/action";
+import { deleteUser, getUsers } from "@/lib/action";
 
 const AdminUsers = async () => {
-  const getData = async () => {
-    const res = await fetch("https://animator-agency-v2.vercel.app/api/user", {
-      cache: "no-store",
-    });
+  // const getData = async () => {
+  //   const res = await fetch("https://animator-agency-v2.vercel.app/api/user", {
+  //     cache: "no-store",
+  //   });
 
-    if (!res.ok) {
-      throw new Error("Wrong fetch");
-    }
+  //   if (!res.ok) {
+  //     throw new Error("Wrong fetch");
+  //   }
 
-    return res.json();
-  };
+  //   return res.json();
+  // };
 
-  const users = await getData();
+  const users = await getUsers();
 
   return (
     <div className="flex flex-col gap-5">

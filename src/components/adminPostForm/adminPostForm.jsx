@@ -1,7 +1,6 @@
 "use client";
 
 import { addPost } from "@/lib/action";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
 
