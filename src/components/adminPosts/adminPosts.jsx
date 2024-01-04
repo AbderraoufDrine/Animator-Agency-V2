@@ -4,19 +4,25 @@ import avatar from "../../../public/noavatar.png";
 import { deletePost } from "@/lib/action";
 
 const AdminPosts = async () => {
-  const getData = async () => {
-    const res = await fetch("https://animator-agency-v2.vercel.app/api/blog", {
-      cache: "no-store",
-    });
+ const [posts, setPosts] = useState([]);
 
-    if (!res.ok) {
-      throw new Error("Wrong fetch");
-    }
+  useEffect(() => {
+    const postRes = async () => {
+      const res = await fetch(
+        "https://animator-agency-v2.vercel.app/api/blog",
+        {
+          cache: "no-store",
+        }
+      );
 
-    return res.json();
-  };
+      if (!res.ok) {
+        throw new Error("Wrong fetch");
+      }
 
-  const posts = await getData();
+      setPosts(res.json());
+    };
+    postRes();
+  }, [posts]);
 
   return (
     <div className="flex flex-col gap-5">
